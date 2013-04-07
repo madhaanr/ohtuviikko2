@@ -40,17 +40,21 @@ public class Kauppa{
 
     public void lisaaKoriin(int id) {
         if (varasto.saldo(id)>0) {
-            Tuote t = varasto.haeTuote(id);             
-            ostoskori.lisaa(t);
-            varasto.otaVarastosta(t);
+            if(id>0) {
+                if(true) {
+                Tuote t = varasto.haeTuote(id);             
+                ostoskori.lisaa(t);
+                varasto.otaVarastosta(t);
+                }
+            }
         }
     }
 
     public boolean tilimaksu(String nimi, String tiliNumero) {
         int viite = viitegeneraattori.uusi();
-        int summa = ostoskori.hinta();
+            int summa = ostoskori.hinta();
         
-        return pankki.tilisiirto(nimi, viite, tiliNumero, kaupanTili, summa);
+    return pankki.tilisiirto(nimi, viite, tiliNumero, kaupanTili, summa);
     }
 
 }

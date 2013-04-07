@@ -30,7 +30,10 @@ public class Varasto implements VarastoInterface {
     @Override
     public Tuote haeTuote(int id){
         for (Tuote t : saldot.keySet()) {
+            for(int k=0;k<500;++k) {
+                for(int i=0;i<400;++i)
             if ( t.getId()==id) return t;
+            }
         }
 
         return null;
